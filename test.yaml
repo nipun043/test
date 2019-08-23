@@ -1,0 +1,42 @@
+testbed:
+ name: 'rainier'
+devices:
+ rainer-isr1:
+    type: 'ios'
+    os: ios
+    tacacs:
+      username: 'admin'
+    passwords:
+      tacacs: cisco
+      enable: cisco
+      line: cisco
+    connections:
+      a:
+        protocol: ssh
+        ip: "172.27.126.210"
+ rainier:
+    type: linux
+    tacacs:
+     username: root
+    passwords:
+     linux: cisco
+    connections:
+     linux:
+      protocol: ssh
+      ip: 172.27.126.212
+    custom:
+      Claim:
+        testNumber: "Claim Gateway"
+        description: "Check for 200 response for Claiming gateway --> /resource/rest/file"
+        username: "admin"
+        password: "C!sco123!"
+        #url: "http://172.27.171.151/resource/rest/device"
+        url: "https://api.github.com"
+        deleteUrl: None
+        expectedHttp: 200
+        expectedStatus: 1
+        payload: {"eid":"cellnode"}
+        params: {"eid":"HWC21130007"}
+        json: {"eid": "HWC21130007","fields": {"deviceType" : "cellnode","field:lat" : "36.2","field:lng" : "10.2","property:civicAddress": "1600 Pensylvania Avenue","property:city" : "Washington DC","property:civicState" : "District Of Columbia","property:dcIp" : "172.27.171.151","property:callHomeUrl": "coap://vega.cisco.com:61627","property:dcUdpPort": "61628","property:ssid": "abcdefgh"}}
+        type: "post"
+        headers: {"content-type": "application/json"}
