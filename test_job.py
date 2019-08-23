@@ -14,7 +14,7 @@ logging.getLogger().setLevel(logging.INFO)
 def main():
     # Find the location of the script in relation to the job file
     test_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    testscript1 = os.path.join(test_path, '/pyats/test.py')
+    testscript1 = os.path.join(test_path, '/test/test.py')
 
     
     result = run(testscript=testscript1)
