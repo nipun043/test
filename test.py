@@ -52,12 +52,7 @@ class CommonSetup(aetest.CommonSetup):
 
 class tests(aetest.Testcase):
 
-   #### PUT test function here #####
-
-    @aetest.test
-    def connectAndTest(self, testbed):
-        out1 = testbed.devices['rainer-isr1'].execute('show ip interface brief')
-        print(out1)
+   #### PUT test function here ##### 
 
 
     @aetest.test
@@ -89,6 +84,11 @@ class tests(aetest.Testcase):
             self.failed('********* Failed to add Gateway to Core SVC **********')
 
         return True
+    
+    @aetest.test
+    def connectAndTest(self, testbed):
+        out1 = testbed.devices['rainer-isr1'].execute('show ip interface brief')
+        print(out1)
 
 
 class CommonCleanup(aetest.CommonCleanup):
